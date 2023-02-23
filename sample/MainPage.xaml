@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="sample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:sample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            Text="Username" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="Password" />
+        <TextBox
+            x:Name="userName"
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="200" />
+        <PasswordBox
+            x:Name="passWord"
+            Grid.Row="1"
+            Grid.Column="1" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Content="Clear"
+            Click="clearTextBox"/>
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Click="nextPage"
+            Content="Login" />
+        <TextBlock
+            x:Name="popUp"
+            Grid.Row="3"
+            Grid.Column="1"
+            Text="Invalid username/password"
+            Visibility="Collapsed" />
+    </Grid>
+</Page>
