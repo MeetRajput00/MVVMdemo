@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using sample.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,9 +26,12 @@ namespace sample
    
     public sealed partial class TableView : Page
     {
+        TableViewModel tableViewModel { get; set; }
         public TableView()
         {
             this.InitializeComponent();
+            tableViewModel = new TableViewModel();
+            DataContext = tableViewModel;
         }
     }
 

@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-
+    <ScrollViewer>
     <Grid Padding="35">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -89,16 +89,19 @@
                 Margin="7"
                 PlaceholderText="MD 1" />
             <TextBox
+                Text="{x:Bind tableViewModel.TableModel.NdcCode,Mode=TwoWay}"
                 Grid.Row="3"
                 Grid.Column="0"
                 Margin="7"
                 PlaceholderText="NDC Code" />
             <TextBox
+                Text="{x:Bind tableViewModel.TableModel.NdcQuantity,Mode=TwoWay}"
                 Grid.Row="3"
                 Grid.Column="1"
                 Margin="7"
                 PlaceholderText="NDC Quantity" />
             <TextBox
+                Text="{x:Bind tableViewModel.TableModel.Amount,Mode=TwoWay}"
                 Grid.Row="3"
                 Grid.Column="2"
                 Margin="7"
@@ -119,7 +122,7 @@
                 Margin="7"
                 PlaceholderText="Submitted Rendering NPI" />
         </Grid>
-        <Button Foreground="White" Background="CornflowerBlue" Grid.Row="3" Grid.Column="0" Content="Add" HorizontalAlignment="Right"></Button>
+        <Button Command="{x:Bind tableViewModel.submitButton}" Foreground="White" Background="CornflowerBlue" Grid.Row="3" Grid.Column="0" Content="Add" HorizontalAlignment="Right"></Button>
         <Rectangle Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" Fill="Wheat" Height="2"/>
         <Grid Grid.Row="5" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -151,5 +154,14 @@
             </Grid>
             <Button Foreground="CornflowerBlue" Background="White" BorderBrush="CornflowerBlue" Grid.Row="0" Grid.Column="1" Content="Expand All" HorizontalAlignment="Right"/>
         </Grid>
+        <controls:DataGrid ColumnWidth="*"  Grid.Row="6" Grid.Column="0" ItemsSource="{x:Bind tableViewModel.DataList}" AutoGenerateColumns="False">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="NDC Code" Binding="{Binding NdcCode}" />
+                <controls:DataGridTextColumn Header="NDC Quantity" Binding="{Binding NdcQuantity}" />
+                <controls:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" />
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+
     </Grid>
+    </ScrollViewer>
 </Page>

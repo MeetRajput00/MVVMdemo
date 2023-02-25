@@ -14,7 +14,14 @@ namespace sample.Models
 		public int NdcCode
 		{
 			get { return ndcCode; }
-			set { ndcCode = value; OnPropertyChanged("NdcCode"); }
+			set 
+			{ 
+				if(ndcCode!=value)
+				{ 
+					ndcCode = value; 
+					OnPropertyChanged("NdcCode"); 
+				} 
+			}
 		}
 
 		private int ndcQuantity;
@@ -22,7 +29,14 @@ namespace sample.Models
 		public int NdcQuantity
 		{
 			get { return ndcQuantity; }
-			set { ndcQuantity = value; OnPropertyChanged("NdcQuantity"); }
+			set 
+			{ 
+				if (ndcQuantity != value) 
+				{ 
+					ndcQuantity = value; 
+					OnPropertyChanged("NdcQuantity"); 
+				} 
+			}
 		}
 
 		private int amount;
@@ -30,9 +44,24 @@ namespace sample.Models
 		public int Amount
 		{
 			get { return amount; }
-			set { amount = value; OnPropertyChanged("Amount"); }
+			set 
+			{ 
+				if (amount != value) 
+				{ 
+					amount = value; 
+					OnPropertyChanged("Amount"); 
+				} 
+			}
 		}
+		public TableModel()
+		{
 
-
+		}
+		public TableModel(int ndcCode, int ndcQuantity, int amount)
+		{
+			NdcCode = ndcCode;
+			NdcQuantity = ndcQuantity;
+			Amount = amount;
+		}
 	}
 }
