@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sample.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,32 +15,22 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
+using sample.Services;
 namespace sample
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class LoginView : Page
     {
-        public MainPage()
+        public LoginViewModel ViewModel { get;set; }
+        public LoginView()
         {
             this.InitializeComponent();
-        }
-
-        private void nextPage(object sender, RoutedEventArgs e)
-        {
-            if (userName.Text == "admin" && passWord.Password == "admin")
-                this.Frame.Navigate(typeof(BlankPage1));
-            else
-                popUp.Visibility = Visibility.Visible;
-        }
-
-        private void clearTextBox(object sender, RoutedEventArgs e)
-        {
-            userName.Text = "";
-            passWord.Password = "";
-            popUp.Visibility = Visibility.Collapsed;
+            Frame currentFrame = Window.Current.Content as Frame;
+            NavigationService.CurrentInstance.NavigationFrame = currentFrame;
+            ViewModel = new LoginViewModel();
+            DataContext = ViewModel;
         }
     }
 }

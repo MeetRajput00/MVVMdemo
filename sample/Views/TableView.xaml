@@ -1,6 +1,6 @@
 ﻿<Page
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    x:Class="sample.BlankPage1"
+    x:Class="sample.TableView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -44,7 +44,6 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <CalendarDatePicker
-                x:Name="sosDate"
                 Grid.Row="0"
                 Grid.Column="0"
                 Width="auto"
@@ -52,7 +51,6 @@
                 Header="Box 24a-Start of Service*"
                 PlaceholderText="12/20/2018" />
             <CalendarDatePicker
-                x:Name="eosDate"
                 Grid.Row="0"
                 Grid.Column="1"
                 Width="auto"
@@ -60,7 +58,6 @@
                 Header="Box 24a-End of Service"
                 PlaceholderText="12/21/2018" />
             <TextBox
-                x:Name="pcText"
                 Grid.Row="0"
                 Grid.Column="2"
                 Margin="7"
@@ -77,61 +74,52 @@
                 Margin="7"
                 Text="Modifiers" />
             <TextBox
-                x:Name="posText"
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="7"
                 PlaceholderText="Box 24b-Place of Service" />
             <TextBox
-                x:Name="dpText"
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="7"
                 PlaceholderText="DP 1*" />
             <TextBox
-                x:Name="modText"
                 Grid.Row="2"
                 Grid.Column="2"
                 Margin="7"
                 PlaceholderText="MD 1" />
             <TextBox
-                x:Name="ndcText"
                 Grid.Row="3"
                 Grid.Column="0"
                 Margin="7"
                 PlaceholderText="NDC Code" />
             <TextBox
-                x:Name="ndcqText"
                 Grid.Row="3"
                 Grid.Column="1"
                 Margin="7"
                 PlaceholderText="NDC Quantity" />
             <TextBox
-                x:Name="billAmtText"
                 Grid.Row="3"
                 Grid.Column="2"
                 Margin="7"
                 PlaceholderText="Box 24f-Billed Amount" />
             <TextBox
-                x:Name="rpIDText"
                 Grid.Row="4"
                 Grid.Column="0"
                 Margin="7"
                 PlaceholderText="Box 24j-Rendering Provider ID" />
             <TextBox
-                x:Name="rNPIText"
                 Grid.Row="4"
                 Grid.Column="1"
                 Margin="7"
                 PlaceholderText="Rendering NPI" />
             <TextBox
-                x:Name="srNPIText"
                 Grid.Row="4"
                 Grid.Column="2"
                 Margin="7"
                 PlaceholderText="Submitted Rendering NPI" />
         </Grid>
-        <Button Foreground="White" Background="CornflowerBlue" Grid.Row="3" Grid.Column="0" Content="Add" HorizontalAlignment="Right" Click="addItemsToTable"></Button>
+        <Button Foreground="White" Background="CornflowerBlue" Grid.Row="3" Grid.Column="0" Content="Add" HorizontalAlignment="Right"></Button>
         <Rectangle Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" Fill="Wheat" Height="2"/>
         <Grid Grid.Row="5" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -163,8 +151,5 @@
             </Grid>
             <Button Foreground="CornflowerBlue" Background="White" BorderBrush="CornflowerBlue" Grid.Row="0" Grid.Column="1" Content="Expand All" HorizontalAlignment="Right"/>
         </Grid>
-        <controls:DataGrid x:Name="dataGrid" Grid.Row="6" Grid.Column="0" AutoGenerateColumns="True" ItemsSource="{x:Bind detailSource}">
-
-        </controls:DataGrid>
     </Grid>
 </Page>
